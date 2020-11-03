@@ -17,13 +17,13 @@ kp = keypad.keypad()
 #Phase A: Pressure only 8Hours +16/-4
 #Phase B: P&T 24 Hours +16/-4
 #Phase C: Temp Off, Press on 4 Hours +/-0
-phase_a_default = 5
+phase_a_default = 1
 # phase_a_min = 4
 # phase_a_max = 24
-phase_b_default = 10
+phase_b_default = 2
 # phase_b_min = 20
 # phase_b_max = 40
-phase_c_default = 5
+phase_c_default = 1
 # phase_c_min = 4
 # phase_c_max = 4
 phase_a = phase_a_default
@@ -66,13 +66,13 @@ while 1:
         if key == "A":
             start_time = current_time             
             current_phase = 3
-            time_delta = datetime.timedelta(seconds=phase_a)
+            time_delta = datetime.timedelta(hours=phase_a)
             phase_a_finish = current_time + time_delta
-            time_delta = datetime.timedelta(seconds=phase_b)
+            time_delta = datetime.timedelta(hours=phase_b)
             phase_b_finish = phase_a_finish + time_delta
-            time_delta = datetime.timedelta(seconds=phase_c)
+            time_delta = datetime.timedelta(hours=phase_c)
             phase_c_finish = phase_b_finish + time_delta
-            kp.press_on()
+            #kp.press_on()
             
             
         elif key == "D":
@@ -119,7 +119,7 @@ while 1:
         dt.autoclave_in_use()
         time.sleep(2)
         
-        if current_time > phase_b_finish:
+        if current_time > phase_c_finish:
             current_phase = 6
             kp.press_off()
             disp_opt = 0
