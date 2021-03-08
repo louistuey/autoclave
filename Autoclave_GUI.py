@@ -74,8 +74,8 @@ root = Tk()
 # root.geometry("300x250")
 root.configure(bg = '#333333')
 #root.geometry("400x300")
-#root.attributes('-fullscreen', True)
-
+root.attributes('-fullscreen', True)
+#root.grid_rowconfigure(row=0, minsize=15)
 # Using title() to display a message in
 # the dialogue box of the message in the
 # title bar.
@@ -92,34 +92,34 @@ Phase2.set("24")
 Phase3.set("4")
 
 # Use of Entry class to take input from the user
-Phase1Entry= Entry(root, width=3, font=("Arial",14,""),
-				textvariable=Phase1, justify = 'center')
+Phase1Entry= Entry(root, width=3, font=("Arial",30,""),
+                textvariable=Phase1, justify = 'center')
 Phase1Entry.grid(column = 2, row = 1)
 
-Phase2Entry= Entry(root, width=3, font=("Arial",14,""),
-				textvariable=Phase2, justify = 'center')
+Phase2Entry= Entry(root, width=3, font=("Arial",30,""),
+                textvariable=Phase2, justify = 'center')
 Phase2Entry.grid(column = 2, row = 2)
 
-Phase3Entry= Entry(root, width=3, font=("Arial",14,""),
-				textvariable=Phase3, justify = 'center')
+Phase3Entry= Entry(root, width=3, font=("Arial",30,""),
+                textvariable=Phase3, justify = 'center')
 Phase3Entry.grid(column = 2, row = 3)
 
-timenow=Label(font =("Arial Bold",21,""), bg = '#333333', fg = 'White')
+timenow=Label(font =("Arial Bold",35,""), bg = '#333333', fg = 'White')
 timenow.grid(column = 0, row = 0, columnspan = 4)
 
-phase1label=Label(text = "Pressure", font =("Arial Bold",18), bg = '#333333', fg = '#63d1db')
+phase1label=Label(text = "Pressure", font =("Arial Bold",35), bg = '#333333', fg = '#63d1db')
 phase1label.grid(column = 0, row = 1)
 
-phase2label=Label(text = "Pressure + Heat", font =("Arial Bold",18), bg = '#333333', fg = '#63d1db')
+phase2label=Label(text = "Pressure + Heat", font =("Arial Bold",35), bg = '#333333', fg = '#63d1db')
 phase2label.grid(column = 0, row = 2)
 
-phase3label=Label(text = "Pressure", font =("Arial Bold",18), bg = '#333333', fg = '#63d1db')
+phase3label=Label(text = "Pressure", font =("Arial Bold",35), bg = '#333333', fg = '#63d1db')
 phase3label.grid(column = 0, row = 3)
 
 
-finishtitle=Label(text = "Finish Time", font =("Arial Bold",21), bg = '#333333', fg = '#cf3021')
+finishtitle=Label(text = "Finish Time", font =("Arial Bold",32), bg = '#333333', fg = '#cf3021')
 finishtitle.grid(column = 0, row = 5, columnspan = 4)
-finishlabel=Label(font =("Arial Bold",21,""), bg = '#333333', fg = '#cf3021')
+finishlabel=Label(font =("Arial Bold",32,""), bg = '#333333', fg = '#cf3021')
 finishlabel.grid(column = 0, row = 6, columnspan = 4)
 
 update_clock()
@@ -137,9 +137,9 @@ def reset():
     Phase3.set("4")
 
 def submit():
-	try:
-		# the input provided by the user is
-		# stored in here :temp
+    try:
+        # the input provided by the user is
+        # stored in here :temp
             p_1 = int(Phase1.get()) 
             p_2 = int(Phase2.get())
             p_3 = int(Phase3.get())
@@ -158,42 +158,42 @@ def submit():
             exit_button.pack()
             
             
-	except:
-		print("Please input the right value")
-	while finished == 0:
-		
-		finished =1
+    except:
+        print("Please input the right value")
+    while finished == 0:
         
-P1_down_btn = Button(root, text = '<', bd = '3',font =("Arial Bold",10),
+        finished =1
+        
+P1_down_btn = Button(root, text = '<', bd = '3',font =("Arial Bold",18),
                        command= P1_down)
 P1_down_btn.grid(column = 1, row = 1)
 
-P1_up_btn = Button(root, text = '>', bd = '3',font =("Arial Bold",10),
+P1_up_btn = Button(root, text = '>', bd = '3',font =("Arial Bold",18),
                        command= P1_up)
 P1_up_btn.grid(column = 3, row = 1)
 
-P2_down_btn = Button(root, text = '<', bd = '3',font =("Arial Bold",10),
+P2_down_btn = Button(root, text = '<', bd = '3',font =("Arial Bold",18),
                        command= P2_down)
 P2_down_btn.grid(column = 1, row = 2)
 
-P2_up_btn = Button(root, text = '>', bd = '3',font =("Arial Bold",10),
+P2_up_btn = Button(root, text = '>', bd = '3',font =("Arial Bold",18),
                        command= P2_up)
 P2_up_btn.grid(column = 3, row = 2)
 
-P3_down_btn = Button(root, text = '<', bd = '3',font =("Arial Bold",10),
+P3_down_btn = Button(root, text = '<', bd = '3',font =("Arial Bold",18),
                        state = "disabled", command= P3_down)
 P3_down_btn.grid(column = 1, row = 3)
 
-P3_up_btn = Button(root, text = '>', bd = '3',font =("Arial Bold",10),
+P3_up_btn = Button(root, text = '>', bd = '3',font =("Arial Bold",18),
                        state = "disabled", command= P3_up)
 P3_up_btn.grid(column = 3, row = 3)
 
-start_btn = Button(root, text='Start', bd='5', bg = 'green', padx = 80, pady = 10,
-			command= submit)
+start_btn = Button(root, text='Start', font =("Arial Bold",28), bd='5', bg = 'green', padx = 80, pady = 10,
+            command= submit)
 start_btn.grid(column = 0, row = 4)
 
-reset_btn = Button(root, text='Reset Times', bd='5', bg = 'black' , fg = 'white', pady = 10,
-			command = reset)
+reset_btn = Button(root, text='Reset Times', font =("Arial Bold",28), bd='5', bg = 'black' , fg = 'white', pady = 10,
+            command = reset)
 reset_btn.grid(column = 1, row = 4, columnspan = 3)
 
 
