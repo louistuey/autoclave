@@ -105,16 +105,16 @@ Phase3Entry= Entry(root, width=3, font=("Arial",30,""),
 Phase3Entry.grid(column = 2, row = 3)
 
 timenow=Label(font =("Arial Bold",35,""), bg = '#333333', fg = 'White')
-timenow.grid(column = 0, row = 0, columnspan = 4, pady = 4)
+timenow.grid(column = 0, row = 0, columnspan = 4)
 
 phase1label=Label(text = "Pressure", font =("Arial Bold",35), bg = '#333333', fg = '#63d1db')
-phase1label.grid(column = 0, row = 1, pady = 2 )
+phase1label.grid(column = 0, row = 1)
 
 phase2label=Label(text = "Pressure + Heat", font =("Arial Bold",35), bg = '#333333', fg = '#63d1db')
-phase2label.grid(column = 0, row = 2, pady = 2, ipadx =5)
+phase2label.grid(column = 0, row = 2)
 
 phase3label=Label(text = "Pressure", font =("Arial Bold",35), bg = '#333333', fg = '#63d1db')
-phase3label.grid(column = 0, row = 3, pady = 2)
+phase3label.grid(column = 0, row = 3)
 
 
 finishtitle=Label(text = "Finish Time", font =("Arial Bold",32), bg = '#333333', fg = '#cf3021')
@@ -166,35 +166,35 @@ def submit():
         
 P1_down_btn = Button(root, text = '<', bd = '3',font =("Arial Bold",18),
                        command= P1_down)
-P1_down_btn.grid(column = 1, row = 1, pady = 2 , sticky = 'E')
+P1_down_btn.grid(column = 1, row = 1)
 
 P1_up_btn = Button(root, text = '>', bd = '3',font =("Arial Bold",18),
                        command= P1_up)
-P1_up_btn.grid(column = 3, row = 1, sticky ='W' , pady = 2 )
+P1_up_btn.grid(column = 3, row = 1)
 
 P2_down_btn = Button(root, text = '<', bd = '3',font =("Arial Bold",18),
                        command= P2_down)
-P2_down_btn.grid(column = 1, row = 2, pady = 2 , sticky = 'E' )
+P2_down_btn.grid(column = 1, row = 2)
 
 P2_up_btn = Button(root, text = '>', bd = '3',font =("Arial Bold",18),
                        command= P2_up)
-P2_up_btn.grid(column = 3, row = 2, sticky ='W' , pady = 2  )
+P2_up_btn.grid(column = 3, row = 2)
 
 P3_down_btn = Button(root, text = '<', bd = '3',font =("Arial Bold",18),
                        state = "disabled", command= P3_down)
-P3_down_btn.grid(column = 1, row = 3, pady = 2 , sticky = 'E' )
+P3_down_btn.grid(column = 1, row = 3)
 
 P3_up_btn = Button(root, text = '>', bd = '3',font =("Arial Bold",18),
                        state = "disabled", command= P3_up)
-P3_up_btn.grid(column = 3, row = 3, sticky ='W' , pady = 2 )
+P3_up_btn.grid(column = 3, row = 3)
 
 start_btn = Button(root, text='Start', font =("Arial Bold",28), bd='5', bg = 'green', padx = 80, pady = 10,
             command= submit)
-start_btn.grid(column = 0, row = 4, padx =1 , pady = 4 )
+start_btn.grid(column = 0, row = 4)
 
 reset_btn = Button(root, text='Reset Times', font =("Arial Bold",28), bd='5', bg = 'black' , fg = 'white', pady = 10,
             command = reset)
-reset_btn.grid(column = 1, row = 4, columnspan = 3, padx =1 , pady = 5 )
+reset_btn.grid(column = 1, row = 4, columnspan = 3)
 
 
 # infinite loop which is required to
